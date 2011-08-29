@@ -1,0 +1,13 @@
+Package: foodweb
+Version: 1.0
+Title: Generating food webs
+Author:   Yangchen Lin <linyangchen@gmail.com>,
+  Owen Petchey <owen.petchey@ieu.uzh.ch>,
+  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+Maintainer: Yangchen Lin <linyangchen@gmail.com>
+Depends: R (>= 2.01), NetIndices, limSolve, diagram
+Suggests: LIM
+Description: generates binary and quantitative food webs.
+License: GPL (>= 2)
+LazyData: yes
+Packaged: Fri Jul 18 09:39:11 2008; hornik

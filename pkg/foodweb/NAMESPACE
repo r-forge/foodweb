@@ -1,0 +1,6 @@
+useDynLib(foodweb)
+
+export(Interval, IntervalStats)
+
+export(generate.random, generate.cascade, generate.niche)
+
