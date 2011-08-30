@@ -1,0 +1,18 @@
+
+Yangchen:
+
+1. Connectance tolerance for niche models user-specified in percentage (default 3\% used by Williams & Martinez 2000)
+2. The start temperature is calculated by performing 1000 random swaps of prey species ordering, from which the temperature term in the acceptance/rejection formula is solved for p=0.5. Stop simulated annealing if, within the last 10 iterations at a given temperature, G does not get lower than G in first of these iterations; continue lowering the temperature otherwise.
+3. Make the cost function in Stouffer et al. modifiable e.g. g_ij becomes {g_ij}^2, to penalize a gap of two adjacent prey species more than two nonadjacent gaps of one species each.
+4. Zoom in on the final value of \code{I} by making finer divisions of the parameter c near that value.
+5. Compute all possible permutations of prey ordering at minimum G - there is some interest in this within the community but it is computationally expensive and we are not even sure whether G is at the true minimum
+6. Add acknowledgement of D. B. Stouffer (verbal consent given)
+
+
+
+Karline:
+
+1 Image function that transposes and reorders the food web matrix ?
+2 Add food web quantification function 
+
+

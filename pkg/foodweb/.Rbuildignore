@@ -1,0 +1,4 @@
+src/.*[.]dll
+^Rplots.pdf$
+work
+todo.txt
