@@ -16,3 +16,7 @@ Karline:
 2 Add food web quantification function 
 
 
+Owen:
+Add all the ADBM functions.
+Add Plot.matrix
+Look through all my other R functions to see what else I might add.
