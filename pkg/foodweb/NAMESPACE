@@ -2,5 +2,5 @@ useDynLib(foodweb)
 
 export(Interval, IntervalStats)
 
-export(generate.random, generate.cascade, generate.niche)
+export(generate.random, generate.cascade, generate.niche, imageweb)
 

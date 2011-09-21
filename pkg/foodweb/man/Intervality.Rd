@@ -94,11 +94,14 @@ intervality <- Interval(Flow = Benguela,
 
 par (mfrow = c(1,2))
 BB <- Benguela ; BB[BB > 0] <- 1
-image (BB, col = greycol(2), main = "Original web")
+imageweb (BB, main = "Original web")
 
 B2 <- intervality$IntMatrix ; B2[B2 > 0] <- 1
-image (B2, col = greycol(2), main = "Interval web")
+imageweb (B2, main = "Interval web")
 
+par(mfrow = c(1,1))
+imageweb(BB, names = TRUE)
+mtext(outer = TRUE, side = 3, " Benguela Interval")
 # IF it has not converged, we may do a second step:
 # intervality <- Interval(Flow = intervality$IntMatrix,
 #          control = list(StartTemp = 0.25, Numiter = 100, EndTemp = 0.15))

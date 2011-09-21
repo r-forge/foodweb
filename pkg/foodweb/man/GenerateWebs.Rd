@@ -67,16 +67,12 @@ nicheweb <- generate.niche (S, L)
 
 # image plots
 par (mfrow = c(2,2))
-image(randomweb,  col = greycol(2), main = "random web", 
-      x = 1:S, y = 1:S, xlab = "resource", ylab = "consumer"); box() 
-image(cascadeweb, col = greycol(2), main = "cascade web",
-      x = 1:S, y = 1:S, xlab = "resource", ylab = "consumer"); box() 
-image(nicheweb,   col = greycol(2), main = "niche web",
-      x = 1:S, y = 1:S, xlab = "resource", ylab = "consumer"); box() 
+imageweb(randomweb,  main = "random web")
+imageweb(cascadeweb, main = "cascade web") 
+imageweb(nicheweb,   main = "niche web") 
 
 BB <- (Benguela) ; BB[BB > 0] <- 1
-image(BB, col = greycol(2), main = "Benguela food web", 
-      x = 1:S, y = 1:S, xlab = "resource", ylab = "consumer"); box() 
+imageweb(BB,  main = "Benguela food web") 
 
 ## -----------------------------------------------------------------------------
 ## Niche webs
@@ -87,10 +83,10 @@ nichewebc <- generate.niche (S, L, c = 0.6)
 nichewebd <- generate.niche (S, L, c = 1.0)
 
 par (mfrow = c(2,2))
-image(nicheweba, col = greycol(2), main = "niche web, c = 0") 
-image(nichewebb, col = greycol(2), main = "niche web, c = 0.3") 
-image(nichewebc, col = greycol(2), main = "niche web, c = 0.6") 
-image(nichewebd, col = greycol(2), main = "niche web, c = 1") 
+imageweb(nicheweba, main = "niche web, c = 0") 
+imageweb(nichewebb, main = "niche web, c = 0.3") 
+imageweb(nichewebc, main = "niche web, c = 0.6") 
+imageweb(nichewebd, main = "niche web, c = 1") 
 
 }
 

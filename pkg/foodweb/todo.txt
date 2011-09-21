@@ -12,7 +12,8 @@ Yangchen:
 
 Karline:
 
-1 Image function that transposes and reorders the food web matrix ?
+1 Image function that transposes and reorders the food web matrix - 
+   => done - check if this is what we want and not same as plot.matrix??
 2 Add food web quantification function 
 
 
