@@ -24,7 +24,11 @@
 
   Owen Petchey <owen.petchey@ieu.uzh.ch>,
   
-  Karline Soetaert <k.soetaert@nioo.knaw.nl>
+  Karline Soetaert <k.soetaert@nioo.knaw.nl>,
+  
+  Bjšrn Rall <brall@gwdg.de>,
+  
+  Florian Schneider <f_schneider@bio.tu-darmstadt.de>
 }
 
 \references{
