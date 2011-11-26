@@ -60,10 +60,13 @@ as.linklist.matrix <- function(x, pred.rows = TRUE, ...) {
 		# here, other conditions for this class can be defined
 		
 		# use indices to existing links in x (values > 0), creates matrix with two columns: row, col
-		CC <- which(x > 0, arr.ind = TRUE)
+		pred <- as.vector(which(webmatrix > 0, arr.ind = TRUE)[,"col"])
+		prey <- as.vector(which(webmatrix > 0, arr.ind = TRUE)[,"row"])
+		
+		linklist <- data.frame(pred,prey)
 		
 		#create linklist object
-		object <- as.linklist(as.data.frame(CC), pred.first = !pred.rows)
+		object <- as.linklist(as.data.frame(linklist), pred.first = "TRUE")
 
 		return(object)
 }
@@ -71,11 +74,15 @@ as.linklist.matrix <- function(x, pred.rows = TRUE, ...) {
 # S3 method converts objects of class 'webmatrix' to 'linklist'. no need to check for validity! 
 # (no generic function and methods to create "webmatrix" objects defined, yet! )
 as.linklist.webmatrix <- function(x) {
-		# use indices to existing links in x (values > 0)
-		CC <- which(x > 0, arr.ind = TRUE)
+		# use indices to existing links in x (values > 0), creates matrix with two columns: row, col
+		pred <- as.vector(which(webmatrix > 0, arr.ind = TRUE)[,"col"])
+		prey <- as.vector(which(webmatrix > 0, arr.ind = TRUE)[,"row"])
+		
+		linklist <- data.frame(pred,prey)
 		
 		#create linklist object
-		object <- as.linklist(as.data.frame(CC), pred.first = !pred.rows)
+		object <- as.linklist(as.data.frame(linklist), pred.first = "TRUE")
+
 		return(object)
 }
 
