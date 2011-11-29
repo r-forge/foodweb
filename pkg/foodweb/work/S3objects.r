@@ -92,6 +92,27 @@ as.linklist.foodweb <- function(x) x$linklist
 
 
 
+as.webmatrix <- function(x, ...) UseMethod("as.webmatrix")   #generic function
+
+
+# generates a webmatrix object out of a linklist object
+as.webmatrix.linklist <- function(x, ...) {
+S <- sort(unique(c(x$pred, x$prey)))
+
+webmatrix <- matrix(0, nrow = length(S), ncol = length(S), dimnames = list(S,S))
+
+for(i in 1:length(x$pred)) webmatrix[x$prey[i],x$pred[i]] <- 1
+class(webmatrix) <- c("webmatrix", "matrix")  
+return(webmatrix)
+}
+
+
+as.webmatrix.foodweb <- function(x, ...)  as.webmatrix(x$linklist)
+
+as.webmatrix.matrix <- function(x, ...)  as.webmatrix(as.linklist(x, ...))
+
+as.webmatrix.data.frame <- function(x, ...)  as.webmatrix(as.linklist(x, ...))
+
 
 
 # creates metadata object, only parameter 'name' is mandatory. 
