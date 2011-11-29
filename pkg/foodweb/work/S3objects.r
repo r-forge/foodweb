@@ -10,7 +10,7 @@
 #	todo: 	as.linklist.matrix should convert matrix with numerical entries to a linklist with 3 columns
 #			generic function as.webmatrix and methods to create valid webmatrix objects
 #			print methods for "foodweb" and "metadata" objects
-#
+#			checking functions is.linklist(); is.foodweb(); is.webmatrix()
 #
 #####################################################
 
@@ -60,8 +60,8 @@ as.linklist.matrix <- function(x, pred.rows = TRUE, ...) {
 		# here, other conditions for this class can be defined
 		
 		# use indices to existing links in x (values > 0), creates matrix with two columns: row, col
-		pred <- as.vector(which(webmatrix > 0, arr.ind = TRUE)[,"col"])
-		prey <- as.vector(which(webmatrix > 0, arr.ind = TRUE)[,"row"])
+		pred <- as.vector(which(x > 0, arr.ind = TRUE)[,"col"])
+		prey <- as.vector(which(x > 0, arr.ind = TRUE)[,"row"])
 		
 		linklist <- data.frame(pred,prey)
 		
@@ -98,7 +98,7 @@ as.linklist.foodweb <- function(x) x$linklist
 metadata <- function(
 		name, 
 		type = NULL, 							# empirical webs can be "terrestrial", "marine", "grassland" and generated webs can be "niche", "nestedhierarchy", "adbm" etc.
-		source = NULL, 							# generator functions should create metadata with source = 'generator' and type = 'model.type'
+		source = NULL, 							# generator functions should create metadata with source = 'model' and type = 'model.type'
 		author = NULL, 							
 		year = NULL, 
 		country = NULL, 
@@ -131,10 +131,10 @@ nodes <- function(x, ...) {
 
 
 # Generic S3 function to create foodweb object
-as.foodweb <- function(x, metadata, nodes = NULL) UseMethod("as.foodweb")   
+as.foodweb <- function(x, metadata, nodes = NULL, ...) UseMethod("as.foodweb")   
 
 # S3 method to create foodweb from linklist, metadata, and (optional) nodes
-as.foodweb.linklist <- function(x, metadata, nodes = NULL) {
+as.foodweb.linklist <- function(x, metadata, nodes = NULL, ...) {
 		if(! "metadata" %in% class(metadata)) stop("invalid entry for 'metadata'!")
 		if(class(nodes) == "NULL")  nodes <- nodes(sort(unique(c(x$pred, x$prey))))
 		
